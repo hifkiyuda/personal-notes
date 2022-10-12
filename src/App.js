@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import ArchivePage from './pages/ArchivePage';
 import CreatePage from './pages/CreatePage';
+import DetailPage from './pages/DetailPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import PageNotFound from './pages/PageNotFound';
@@ -10,8 +11,8 @@ import RegisterPage from './pages/RegisterPage';
 import { getUserLogged, putAccessToken } from './utils/api';
 
 function App() {
-  const [authedUser, setAuthedUser] = React.useState(null);
-  const [initial, setInitial] = React.useState(true);
+  const [ authedUser, setAuthedUser ] = React.useState(null);
+  const [ initial, setInitial ] = React.useState(true);
 
   async function onLoginSuccess({ accessToken }) {
     putAccessToken(accessToken);
@@ -69,6 +70,7 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/archive' element={<ArchivePage />} />
           <Route path='/create' element={<CreatePage />} />
+          <Route path='/notes/:id' element={<DetailPage />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </main>

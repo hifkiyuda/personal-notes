@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import  { RiTranslate, RiLightbulbFill, RiLightbulbLine, RiLogoutBoxFill, RiLogoutBoxLine } from 'react-icons/ri';
 
 function Navigation({ authedUser, logout, name }) {
-  const [theme, setTheme] = React.useState('light');
+  const [ theme, setTheme ] = React.useState(localStorage.getItem('theme') || 'light');
 
   const toggleTheme = () => {
     setTheme((prevTheme) => {
-      return prevTheme === 'light' ? 'dark' : 'light';
+      const newTheme = prevTheme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', newTheme);
+      setTheme(newTheme);
     })
   }
 

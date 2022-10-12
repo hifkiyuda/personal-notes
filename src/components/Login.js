@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import useInput from '../hooks/useInput';
 
 function Login({ login }) {
-  const [email, onEmailChange] = useInput();
-  const [password, onPasswordChange] = useInput();
+  const [ email, onEmailChange ] = useInput();
+  const [ password, onPasswordChange ] = useInput();
 
   const loginSubmitHandler = (event) => {
     event.preventDefault();
@@ -21,7 +21,7 @@ function Login({ login }) {
       <br/>
       <input type='password' placeholder='Password' value={password} onChange={onPasswordChange} />
       <br/>
-      <button>Login</button>
+      <button type='submit'>Login</button>
     </form>
   );
 }

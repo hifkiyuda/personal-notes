@@ -16,7 +16,7 @@ function RegisterPage() {
   return (
     <section className='register-page'>
       <h1>Register</h1>
-      <i>Register to make account...</i>
+      <i>Register to make an account...</i>
       <Register register={onRegisterHandler} />
       <p>Back to <Link to="/">login.</Link></p>
     </section>

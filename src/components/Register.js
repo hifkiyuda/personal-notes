@@ -1,20 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import useInput from '../hooks/useInput';
+import { useNavigate } from 'react-router-dom';
 
 function Register({ register }) {
-  const [name, onNameChange] = useInput();
-  const [email, onEmailChange] = useInput();
-  const [password, onPasswordChange] = useInput();
+  const navigate = useNavigate();
+  const [ name, onNameChange ] = useInput();
+  const [ email, onEmailChange ] = useInput();
+  const [ password, onPasswordChange ] = useInput();
+  const [ passwordValidation, onPasswordValidationChange ] = useInput();
 
   const registerSubmitHandler = (event) => {
     event.preventDefault();
-
-    register({
-      name: name,
-      email: email,
-      password: password,
-    });
+    if (password !== passwordValidation) {
+      alert("Passwords do not match.");
+      navigate('/register');
+      return false;
+    } else {
+      register({
+        name: name,
+        email: email,
+        password: password,
+      });
+    }
   }
 
   return (
@@ -25,7 +33,9 @@ function Register({ register }) {
       <br/>
       <input type='password' placeholder='Password' value={password} onChange={onPasswordChange} />
       <br/>
-      <button>Register</button>
+      <input type='password' placeholder='Password Validation' value={passwordValidation} onChange={onPasswordValidationChange} />
+      <br/>
+      <button type='submit'>Register</button>
     </form>
   );
 }
