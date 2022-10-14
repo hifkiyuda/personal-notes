@@ -19,16 +19,6 @@ function DeleteButton({ id, isArchived }) {
     }
   }
 
-  // function onDeleteNote(id) {
-  //   deleteNote(id);
-    
-  //   if (isArchived) {
-  //     navigate('/archived');
-  //   } else {
-  //     navigate('/');
-  //   }
-  // }
-
   return (
     <button className='note-detail__delete' onClick={() => onDeleteHandler(id)}><RiDeleteBinFill /></button>
   );

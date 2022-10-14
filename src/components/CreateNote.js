@@ -1,8 +1,10 @@
 import React from 'react';
 import useInput from '../hooks/useInput';
-// import parser from 'html-react-parser';
+import PropTypes from 'prop-types';
+import LocaleContext from '../context/LocaleContext';
 
 function CreateNote({ createNote }) {
+  const { locale } = React.useContext(LocaleContext);
   const [ title, onTitleChange ] = useInput();
   const [ body, setBody ] = React.useState('');
 
@@ -24,7 +26,7 @@ function CreateNote({ createNote }) {
       <input 
         className='input-title'
         type='text' 
-        placeholder='Enter note title...' 
+        placeholder={locale === 'en' ? 'Enter note title...' : 'Masukkan judul catatan...'} 
         value={title} 
         onChange={onTitleChange} 
         required 
@@ -32,14 +34,18 @@ function CreateNote({ createNote }) {
       <br/>
       <div
         className='input-body'
-        data-placeholder='Enter your note here...'
+        data-placeholder={locale === 'en' ? 'Enter your note here...' : 'Masukkan catatanmu disini...'}
         value={body}
         onInput={onBodyChange}
         contentEditable
       />
-      <button type='submit'>Create</button>
+      <button type='submit'>{locale === 'en' ? 'Create' : 'Buat'}</button>
     </form>
   );
+}
+
+CreateNote.propTypes = {
+  createNote: PropTypes.func.isRequired,
 }
 
 export default CreateNote;

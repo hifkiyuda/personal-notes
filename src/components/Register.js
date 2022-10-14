@@ -27,13 +27,13 @@ function Register({ register }) {
 
   return (
     <form className='register-form' onSubmit={registerSubmitHandler}>
-      <input type='text' placeholder='Name' value={name} onChange={onNameChange} />
+      <input type='text' placeholder='Name' value={name} onChange={onNameChange} required />
       <br/>
-      <input type='email' placeholder='Email' value={email} onChange={onEmailChange} />
+      <input type='email' placeholder='Email' value={email} onChange={onEmailChange} required />
       <br/>
-      <input type='password' placeholder='Password' value={password} onChange={onPasswordChange} />
+      <input type='password' placeholder='Password' value={password} onChange={onPasswordChange} required />
       <br/>
-      <input type='password' placeholder='Password Validation' value={passwordValidation} onChange={onPasswordValidationChange} />
+      <input type='password' placeholder='Password Validation' value={passwordValidation} onChange={onPasswordValidationChange} required />
       <br/>
       <button type='submit'>Register</button>
     </form>

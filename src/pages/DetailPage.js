@@ -6,23 +6,23 @@ import PageNotFound from '../pages/PageNotFound';
 
 function DetailPage() {
   const { id } = useParams();
-  const [ note, setNote ] = React.useState();
+  const [ note, setNote ] = React.useState(null);
   const [initial, setInitial] = React.useState(true);
 
   React.useEffect(() => {
     async function fetchDetailNote() {
-      const { error, data } = await getNote(String(id));
+      const { error, data } = await getNote(id);
 
-      if(!error) {
+      if (!error) {
         setNote(data);
-        setInitial(false);
       }
+      setInitial(false);
     }
 
     fetchDetailNote();
 
     return () => {
-      setNote();
+      setNote(null);
       setInitial(true);
     }
   }, [id]);
@@ -31,8 +31,8 @@ function DetailPage() {
     return null;
   }
 
-  if (note === undefined) {
-    return <PageNotFound />;
+  if (note === null) {
+    return (<PageNotFound />);
   } else {
     return (
       <section className='detail-page'>

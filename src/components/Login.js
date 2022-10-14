@@ -17,9 +17,9 @@ function Login({ login }) {
 
   return (
     <form className='login-form' onSubmit={loginSubmitHandler}>
-      <input type='email' placeholder='Email' value={email} onChange={onEmailChange} />
+      <input type='email' placeholder='Email' value={email} onChange={onEmailChange} required />
       <br/>
-      <input type='password' placeholder='Password' value={password} onChange={onPasswordChange} />
+      <input type='password' placeholder='Password' value={password} onChange={onPasswordChange} required />
       <br/>
       <button type='submit'>Login</button>
     </form>

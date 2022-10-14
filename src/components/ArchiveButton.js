@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { archiveNote } from '../utils/api';
 import PropTypes from 'prop-types';
-import { RiInboxArchiveFill } from "react-icons/ri";
+import { RiInboxArchiveFill } from 'react-icons/ri';
 
 function ArchiveButton({ id }) {
   const navigate = useNavigate();

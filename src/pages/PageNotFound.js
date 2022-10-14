@@ -1,10 +1,11 @@
 import React from 'react';
+import { TbError404 } from 'react-icons/tb';
 
 function PageNotFound() {
   return (
     <section className='page-not-found'>
-      <h1>404</h1>
-      <h3>Page Not Found</h3>
+      <h1><TbError404 className='error' /></h1>
+      <code>Page Not Found</code>
     </section>
   );
 }
